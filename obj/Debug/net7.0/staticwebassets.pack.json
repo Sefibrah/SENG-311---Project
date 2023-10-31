@@ -13,6 +13,38 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/ibrahimsefer/Desktop/Skola/OTU/V semester/SENG 311/lab2/wwwroot/images/Elizabeth.jpg",
+      "PackagePath": "staticwebassets/images/Elizabeth.jpg"
+    },
+    {
+      "Id": "/Users/ibrahimsefer/Desktop/Skola/OTU/V semester/SENG 311/lab2/wwwroot/images/Jacob.jpg",
+      "PackagePath": "staticwebassets/images/Jacob.jpg"
+    },
+    {
+      "Id": "/Users/ibrahimsefer/Desktop/Skola/OTU/V semester/SENG 311/lab2/wwwroot/images/John.jpg",
+      "PackagePath": "staticwebassets/images/John.jpg"
+    },
+    {
+      "Id": "/Users/ibrahimsefer/Desktop/Skola/OTU/V semester/SENG 311/lab2/wwwroot/images/Kate.jpg",
+      "PackagePath": "staticwebassets/images/Kate.jpg"
+    },
+    {
+      "Id": "/Users/ibrahimsefer/Desktop/Skola/OTU/V semester/SENG 311/lab2/wwwroot/images/Martin.jpg",
+      "PackagePath": "staticwebassets/images/Martin.jpg"
+    },
+    {
+      "Id": "/Users/ibrahimsefer/Desktop/Skola/OTU/V semester/SENG 311/lab2/wwwroot/images/Michael.jpg",
+      "PackagePath": "staticwebassets/images/Michael.jpg"
+    },
+    {
+      "Id": "/Users/ibrahimsefer/Desktop/Skola/OTU/V semester/SENG 311/lab2/wwwroot/images/Nina.jpg",
+      "PackagePath": "staticwebassets/images/Nina.jpg"
+    },
+    {
+      "Id": "/Users/ibrahimsefer/Desktop/Skola/OTU/V semester/SENG 311/lab2/wwwroot/images/Tina.jpg",
+      "PackagePath": "staticwebassets/images/Tina.jpg"
+    },
+    {
       "Id": "/Users/ibrahimsefer/Desktop/Skola/OTU/V semester/SENG 311/lab2/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },

@@ -1,0 +1,12 @@
+@model List<LeftNavigationLink>
+
+<nav class="left-navigation border-right border-primary">
+    <ul class="nav flex-column">
+        @foreach (var link in Model)
+        {
+            <li class="nav-item">
+                <a class="nav-link" href="@link.Url">@link.Text</a>
+            </li>
+        }
+    </ul>
+</nav>

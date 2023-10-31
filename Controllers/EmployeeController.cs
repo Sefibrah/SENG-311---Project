@@ -89,10 +89,12 @@ public class EmployeeController : Controller
 
     public IActionResult Index()
     {
+        ViewBag.Layout = "_Lab2Layout";
         return View(employees);
     }
     public IActionResult Details(int id)
     {
+        ViewBag.Layout = "_Lab2Layout";
         // Retrieve the employee by ID from the list (replace this with your data source).
         Employee employee = employees.FirstOrDefault(e => e.Id == id);
 

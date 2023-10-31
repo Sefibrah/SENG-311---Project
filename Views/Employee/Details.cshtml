@@ -1,15 +1,14 @@
 @model lab2.Models.Employee
-
 @{
-    ViewData["Title"] = "Employee Details";
+    Layout = ViewBag.Layout;
 }
 
 <div class="container">
-    <h1>Employee Details</h1>
+    <h1>Details</h1>
 
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Employee Information</h5>
+            <h5 class="card-title">Employee</h5>
 
             <div class="row">
                 <div class="col-md-8">
@@ -34,6 +33,7 @@
                 </div>
             </div>
         </div>
+        @await Html.PartialAsync("Summary", Model)
     </div>
 
     <a asp-action="Index" class="btn btn-primary mt-3">Back to Employee List</a>

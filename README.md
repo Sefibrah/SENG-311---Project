@@ -1,8 +1,4 @@
-The project link:
-
-```
-https://github.com/Sefibrah/SENG-311---Project.git
-```
+This is the [project link](https://github.com/Sefibrah/SENG-311---Project.git)
 
 By Ibrahim Sefer
 

@@ -1,0 +1,40 @@
+@model lab2.Models.Employee
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<div class="container">
+    <h1>Employee Details</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Employee Information</h5>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <dl class="row">
+                        <dt class="col-sm-4">Name:</dt>
+                        <dd class="col-sm-8">@Model.Name</dd>
+
+                        <dt class="col-sm-4">Surname:</dt>
+                        <dd class="col-sm-8">@Model.Surname</dd>
+
+                        <dt class="col-sm-4">Birth Date:</dt>
+                        <dd class="col-sm-8">@Model.BirthDate.ToShortDateString()</dd>
+
+                        <dt class="col-sm-4">Position:</dt>
+                        <dd class="col-sm-8">@Model.Position</dd>
+                    </dl>
+                </div>
+
+                <div class="col-md-4">
+                    <img src="@Url.Content(Model.Image)" class="img-fluid" style="max-width: 150px;"
+                        alt="Employee Image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a asp-action="Index" class="btn btn-primary mt-3">Back to Employee List</a>
+</div>

@@ -1,0 +1,19 @@
+@model Employee
+
+<tr>
+    <td>@Model.Name</td>
+    <td>@Model.Surname</td>
+    <td>@Model.BirthDate.ToShortDateString()</td>
+    <td>@Model.Position</td>
+    <td>
+        <item-link controller-name="Employee" action-name="Details" item-id="@Model.Id"
+            display-text="Details"></item-link>
+    </td>
+    <td>
+        <item-link controller-name="Employee" action-name="Edit" item-id="@Model.Id" display-text="Edit"
+            route-attributes="new { action = " Edit", controller="Employee" }"></item-link>
+    </td>
+    <td>
+        <item-link custom-url="Edit/Employee/@Model.Id" display-text="Update"></item-link>
+    </td>
+</tr>

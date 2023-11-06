@@ -1,17 +1,13 @@
 using lab2.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Encodings.Web;
-using System.Text.Json;
+using System.Collections.Generic;
 
-namespace lab2.Controllers;
-
-public class EmployeeController : Controller
+namespace lab2.Controllers
 {
-    List<Employee> employees = new();
-
-    public EmployeeController()
+    public class EmployeeController : Controller
     {
-        employees = new List<Employee>{
+        private readonly List<Employee> employees = new()
+        {
             new()
             {
                 Id = 0,
@@ -85,25 +81,106 @@ public class EmployeeController : Controller
                 Image="/images/Tina.jpg"
             }
         };
-    }
 
-    public IActionResult Index()
-    {
-        ViewBag.Layout = "_Lab2Layout";
-        return View(employees);
-    }
-    public IActionResult Details(int id)
-    {
-        ViewBag.Layout = "_Lab2Layout";
-        // Retrieve the employee by ID from the list (replace this with your data source).
-        Employee employee = employees.FirstOrDefault(e => e.Id == id);
-
-        if (employee == null)
+        [HttpGet]
+        public IActionResult Index()
         {
-            // You can handle the case where the employee is not found (e.g., return a not found view).
-            return NotFound();
+            ViewBag.Layout = "_Lab2Layout";
+            return View(employees);
         }
 
-        return View(employee);
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            ViewBag.Layout = "_Lab2Layout";
+            Employee employee = employees.Find(e => e.Id == id);
+
+            if (employee == null)
+            {
+                return View("Index");
+            }
+
+            return View(employee);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            ViewBag.Layout = "_Lab2Layout";
+            Employee employee = employees.Find(e => e.Id == id);
+
+            if (employee == null)
+            {
+                return View("Index");
+            }
+
+            return View("Form", employee);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Employee updatedEmployee)
+        {
+            if (ModelState.IsValid)
+            {
+                Employee employeeToUpdate = employees.Find(e => e.Id == updatedEmployee.Id);
+
+                if (employeeToUpdate == null)
+                {
+                    return NotFound();
+                }
+
+                // Update the employee in the list
+                employeeToUpdate.Name = updatedEmployee.Name;
+                employeeToUpdate.Surname = updatedEmployee.Surname;
+                employeeToUpdate.BirthDate = updatedEmployee.BirthDate;
+                employeeToUpdate.Position = updatedEmployee.Position;
+                employeeToUpdate.Image = updatedEmployee.Image;
+
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Layout = "_Lab2Layout";
+            return View("Form", updatedEmployee);
+        }
+
+        [HttpGet("/Edit/Employee/{id?}")]
+        public IActionResult Update(int id)
+        {
+            ViewBag.Layout = "_Lab2Layout";
+            Employee employee = employees.Find(e => e.Id == id);
+
+            if (employee == null)
+            {
+                return View("Index");
+            }
+
+            return View("Form", employee);
+        }
+
+        [HttpPost]
+        public IActionResult Update(Employee updatedEmployee)
+        {
+            if (ModelState.IsValid)
+            {
+                Employee employeeToUpdate = employees.Find(e => e.Id == updatedEmployee.Id);
+
+                if (employeeToUpdate == null)
+                {
+                    return NotFound();
+                }
+
+                // Update the employee in the list
+                employeeToUpdate.Name = updatedEmployee.Name;
+                employeeToUpdate.Surname = updatedEmployee.Surname;
+                employeeToUpdate.BirthDate = updatedEmployee.BirthDate;
+                employeeToUpdate.Position = updatedEmployee.Position;
+                employeeToUpdate.Image = updatedEmployee.Image;
+
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Layout = "_Lab2Layout";
+            return View("Form", updatedEmployee);
+        }
     }
 }

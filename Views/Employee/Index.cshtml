@@ -4,11 +4,6 @@
     Layout = ViewBag.Layout;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-
 <div class="container">
     <h1>Employee List</h1>
 
@@ -20,20 +15,14 @@
                 <th>Birth Date</th>
                 <th>Position</th>
                 <th>Details</th>
+                <th>Edit</th>
+                <th>Update</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var employee in Model)
             {
-                <tr>
-                    <td>@employee.Name</td>
-                    <td>@employee.Surname</td>
-                    <td>@employee.BirthDate.ToShortDateString()</td>
-                    <td>@employee.Position</td>
-                    <td>
-                        <a asp-controller="Employee" asp-action="Details" asp-route-id="@employee.Id">Details</a>
-                    </td>
-                </tr>
+                @Html.DisplayFor(modelItem => employee, "EmployeeItemList")
             }
         </tbody>
     </table>

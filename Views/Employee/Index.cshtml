@@ -5,7 +5,13 @@
 }
 
 <div class="container">
-    <h1>Employee List</h1>
+    <div class="row">
+        <h1 class="col-md-8">Employee List</h1>
+        <div class="col-md-4 d-flex justify-content-end align-items-center">
+            <a type="submit" class="btn btn-primary col-md-4" asp-controller="Employee" asp-action="Create">Create</a>
+        </div>
+    </div>
+
 
     <table class="table table-bordered">
         <thead>

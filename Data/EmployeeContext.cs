@@ -5,12 +5,13 @@ namespace lab2.Data
 {
     public class EmployeeContext : DbContext
     {
-        static readonly string connectionString = "Data Source=SENG311DB.db";
+        static readonly string connectionString = "Server=localhost;Database=Seng311DB;User Id=sa;Password=12345OHdf%e;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
         public DbSet<Employee> Employees { get; set; }
+        // public DbSet<Company> Companies { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(connectionString);
+            optionsBuilder.UseSqlServer(connectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -92,6 +93,19 @@ namespace lab2.Data
                     Image = "/images/Tina.jpg"
                 }
             );
+
+            modelBuilder.Entity<Company>().HasData(
+                new Company { Id = 1, Name = "Company1", Zipcode = "12345", City = "City1", Country = "Country1" },
+                new Company { Id = 2, Name = "Company2", Zipcode = "54321", City = "City2", Country = "Country2" },
+                new Company { Id = 3, Name = "Company3", Zipcode = "75643", City = "City3", Country = "Country3" },
+                new Company { Id = 4, Name = "Company4", Zipcode = "01232", City = "City4", Country = "Country4" },
+                new Company { Id = 5, Name = "Company5", Zipcode = "65100", City = "City5", Country = "Country5" }
+            );
+
+            // modelBuilder.Entity<Company>()
+            //     .HasMany(c => c.Employees)
+            //     .WithOne(e => e.Company)
+            //     .HasForeignKey(c => c.CompanyId);
         }
 
     }

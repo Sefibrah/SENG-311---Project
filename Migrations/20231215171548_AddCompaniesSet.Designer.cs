@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using lab2.Data;
 
@@ -11,9 +12,11 @@ using lab2.Data;
 namespace lab2.Migrations
 {
     [DbContext(typeof(EmployeeContext))]
-    partial class EmployeeContextModelSnapshot : ModelSnapshot
+    [Migration("20231215171548_AddCompaniesSet")]
+    partial class AddCompaniesSet
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,7 +25,7 @@ namespace lab2.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("lab2.Models.Company", b =>
+            modelBuilder.Entity("Company", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -106,9 +109,6 @@ namespace lab2.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CompanyId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
@@ -120,20 +120,11 @@ namespace lab2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("SalaryInfoId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Surname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CompanyId");
-
-                    b.HasIndex("SalaryInfoId")
-                        .IsUnique()
-                        .HasFilter("[SalaryInfoId] IS NOT NULL");
 
                     b.ToTable("Employees");
 
@@ -210,48 +201,6 @@ namespace lab2.Migrations
                             Position = "Team Leader",
                             Surname = "Fins"
                         });
-                });
-
-            modelBuilder.Entity("lab2.Models.SalaryInfo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<decimal>("Gross")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("Net")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SalaryInfos");
-                });
-
-            modelBuilder.Entity("lab2.Models.Employee", b =>
-                {
-                    b.HasOne("lab2.Models.Company", null)
-                        .WithMany("Employees")
-                        .HasForeignKey("CompanyId");
-
-                    b.HasOne("lab2.Models.SalaryInfo", "SalaryInfo")
-                        .WithOne("Employee")
-                        .HasForeignKey("lab2.Models.Employee", "SalaryInfoId");
-
-                    b.Navigation("SalaryInfo");
-                });
-
-            modelBuilder.Entity("lab2.Models.Company", b =>
-                {
-                    b.Navigation("Employees");
-                });
-
-            modelBuilder.Entity("lab2.Models.SalaryInfo", b =>
-                {
-                    b.Navigation("Employee");
                 });
 #pragma warning restore 612, 618
         }

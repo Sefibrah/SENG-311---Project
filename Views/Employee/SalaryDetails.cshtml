@@ -1,0 +1,32 @@
+@model List<lab2.Models.EmployeeSalaryDto>
+
+@{
+    ViewData["Title"] = "Employee Salary Details";
+    Layout = ViewBag.Layout;
+}
+
+<h1>Employee Salary Details</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Full Name</th>
+            <th>Company Name</th>
+            <th>Net Salary</th>
+            <th>Gross Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.Id</td>
+                <td>@employee.FullName</td>
+                <td>@employee.CompanyName</td>
+                <td>@employee.NetSalary</td>
+                <td>@employee.GrossSalary</td>
+            </tr>
+        }
+    </tbody>
+</table>

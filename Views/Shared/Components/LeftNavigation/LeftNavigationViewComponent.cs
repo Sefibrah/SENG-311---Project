@@ -10,6 +10,8 @@ public class LeftNavigationViewComponent : ViewComponent
         {
             new("Home", "/Home/Index"),
             new("Employees", "/Employee/Index"),
+            new("Company Index", "/Company/Index"),
+            new("Employee Salary Details", "/Employee/SalaryDetails"),
             new("Privacy", "/Home/Privacy"),
         };
 

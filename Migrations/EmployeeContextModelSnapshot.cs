@@ -50,7 +50,7 @@ namespace lab2.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Companies");
+                    b.ToTable("Companies", (string)null);
 
                     b.HasData(
                         new
@@ -135,7 +135,7 @@ namespace lab2.Migrations
                         .IsUnique()
                         .HasFilter("[SalaryInfoId] IS NOT NULL");
 
-                    b.ToTable("Employees");
+                    b.ToTable("Employees", (string)null);
 
                     b.HasData(
                         new
@@ -228,7 +228,7 @@ namespace lab2.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SalaryInfos");
+                    b.ToTable("SalaryInfos", (string)null);
                 });
 
             modelBuilder.Entity("lab2.Models.Employee", b =>

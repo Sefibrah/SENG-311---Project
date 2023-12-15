@@ -112,5 +112,26 @@ namespace lab2.Controllers
             ViewBag.Layout = "_Lab2Layout";
             return View("Update", updatedEmployee);
         }
+        [HttpGet]
+        public IActionResult SalaryDetails()
+        {
+            using var context = new EmployeeContext();
+            var employeeSalaryList = (from e in context.Employees
+                                      join c in context.Companies on e.CompanyId equals c.Id
+                                      where e.SalaryInfo != null
+                                      select new EmployeeSalaryDto
+                                      {
+                                          Id = e.Id,
+                                          FullName = $"{e.Name} {e.Surname}",
+                                          CompanyName = c.Name,
+                                          NetSalary = e.SalaryInfo.Net,
+                                          GrossSalary = e.SalaryInfo.Gross
+                                      }).ToList();
+
+
+
+            ViewBag.Layout = "_Lab2Layout";
+            return View("SalaryDetails", employeeSalaryList);
+        }
     }
 }

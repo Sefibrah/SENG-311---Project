@@ -20,6 +20,11 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add<CustomFilter>();
+});
+
 app.MapControllerRoute(
     name: "EditEmployee",
     pattern: "Edit/Employee/{id?}",

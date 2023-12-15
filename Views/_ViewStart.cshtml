@@ -1,3 +1,9 @@
 ﻿@{
     Layout = "_Layout";
+    // Disable client-side validation
+    ViewData["HtmlTagHelperRequired"] = "This is a workaround for a breaking change introduced in 2.1 Preview 1";
+
+    // Disable client-side validation
+    ViewData["ClientValidationEnabled"] = false;
+    ViewData["UnobtrusiveJavaScriptEnabled"] = false;
 }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace lab2.Controllers
 {
+    [TypeFilter(typeof(CustomFilter))]
     public class EmployeeController : Controller
     {
 
@@ -47,7 +48,9 @@ namespace lab2.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Employee updatedEmployee)
+        [ValidateAntiForgeryToken]
+        [TypeFilter(typeof(CustomFilter))]
+        public IActionResult Edit([Bind("Name", "Surname", "Position", "BirthDate", "CompanyId", "Image", "SalaryInfo")] Employee updatedEmployee)
         {
             using var context = new EmployeeContext();
             if (ModelState.IsValid)
@@ -69,7 +72,9 @@ namespace lab2.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Employee newEmployee)
+        [ValidateAntiForgeryToken]
+        [TypeFilter(typeof(CustomFilter))]
+        public IActionResult Create([Bind("Name", "Surname", "Position", "BirthDate", "CompanyId", "Image", "SalaryInfo")] Employee newEmployee)
         {
             using var context = new EmployeeContext();
             if (ModelState.IsValid)
@@ -99,7 +104,9 @@ namespace lab2.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(Employee updatedEmployee)
+        [ValidateAntiForgeryToken]
+        [TypeFilter(typeof(CustomFilter))]
+        public IActionResult Update([Bind("Name", "Surname", "Position", "BirthDate", "CompanyId", "Image", "SalaryInfo")] Employee updatedEmployee)
         {
             using var context = new EmployeeContext();
             if (ModelState.IsValid)

@@ -19,6 +19,6 @@ public class Employee
     [DataType(DataType.Date)]
     public DateTime BirthDate { get; set; }
     public string? Image { get; set; }
-    public int CompanyId { get; set; }
+    // public int CompanyId { get; set; }
     // public Company? Company { get; set; }
 }

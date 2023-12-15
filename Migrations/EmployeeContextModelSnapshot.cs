@@ -22,73 +22,6 @@ namespace lab2.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Company", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Country")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Zipcode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Company");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            City = "City1",
-                            Country = "Country1",
-                            Name = "Company1",
-                            Zipcode = "12345"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            City = "City2",
-                            Country = "Country2",
-                            Name = "Company2",
-                            Zipcode = "54321"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            City = "City3",
-                            Country = "Country3",
-                            Name = "Company3",
-                            Zipcode = "75643"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            City = "City4",
-                            Country = "Country4",
-                            Name = "Company4",
-                            Zipcode = "01232"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            City = "City5",
-                            Country = "Country5",
-                            Name = "Company5",
-                            Zipcode = "65100"
-                        });
-                });
-
             modelBuilder.Entity("lab2.Models.Employee", b =>
                 {
                     b.Property<int>("Id")
@@ -99,9 +32,6 @@ namespace lab2.Migrations
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("CompanyId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
@@ -127,7 +57,6 @@ namespace lab2.Migrations
                         {
                             Id = 1,
                             BirthDate = new DateTime(1992, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CompanyId = 0,
                             Image = "/images/Martin.jpg",
                             Name = "Martin",
                             Position = "Marketing Expert",
@@ -137,7 +66,6 @@ namespace lab2.Migrations
                         {
                             Id = 2,
                             BirthDate = new DateTime(1995, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CompanyId = 0,
                             Image = "/images/Jacob.jpg",
                             Name = "Jacob",
                             Position = "Manager",
@@ -147,7 +75,6 @@ namespace lab2.Migrations
                         {
                             Id = 3,
                             BirthDate = new DateTime(2000, 1, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CompanyId = 0,
                             Image = "/images/Elizabeth.jpg",
                             Name = "Elizabeth",
                             Position = "Software Engineer",
@@ -157,7 +84,6 @@ namespace lab2.Migrations
                         {
                             Id = 4,
                             BirthDate = new DateTime(1997, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CompanyId = 0,
                             Image = "/images/Kate.jpg",
                             Name = "Kate",
                             Position = "Admin",
@@ -167,7 +93,6 @@ namespace lab2.Migrations
                         {
                             Id = 5,
                             BirthDate = new DateTime(1990, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CompanyId = 0,
                             Image = "/images/Michael.jpg",
                             Name = "Michael",
                             Position = "Marketing expert",
@@ -177,7 +102,6 @@ namespace lab2.Migrations
                         {
                             Id = 6,
                             BirthDate = new DateTime(2001, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CompanyId = 0,
                             Image = "/images/John.jpg",
                             Name = "John",
                             Position = "Software Engineer",
@@ -187,7 +111,6 @@ namespace lab2.Migrations
                         {
                             Id = 7,
                             BirthDate = new DateTime(1999, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CompanyId = 0,
                             Image = "/images/Nina.jpg",
                             Name = "Nina",
                             Position = "Software Engineer",
@@ -197,7 +120,6 @@ namespace lab2.Migrations
                         {
                             Id = 8,
                             BirthDate = new DateTime(2000, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CompanyId = 0,
                             Image = "/images/Tina.jpg",
                             Name = "Tina",
                             Position = "Team Leader",
